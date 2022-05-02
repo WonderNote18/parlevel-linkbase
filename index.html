@@ -248,10 +248,10 @@
               target="CUSTOMER CONTACTS">
               <div>CUSTOMER CONTACTS</div>
             </a></li>
-          <li>USAT/SEED/CANTALOUPE <b>1-888-561-4748</b></li>
-          <li>NAYAX <b>410-666-3800</b></li>
-          <li>AIRCALL <b>1-888-240-6923</b></li>
-          <li>HUBSPOT <b>1-888-482-7768</b></li>
+          <li id="usatclipboard" class="clipboard" onclick="copy_number('usat');">USAT/SEED/CANTALOUPE <b>1-888-561-4748</b></li>
+          <li id="nayaxclipboard" class="clipboard" onclick="copy_number('nayax');">NAYAX <b>410-666-3800</b></li>
+          <li id="aircallclipboard" class="clipboard" onclick="copy_number('aircall');">AIRCALL <b>1-888-240-6923</b></li>
+          <li id="hubspotclipboard" class="clipboard" onclick="copy_number('hubspot');">HUBSPOT <b>1-888-482-7768</b></li>
 
 
         </ul>
@@ -268,6 +268,27 @@
         var id = document.querySelector('#wampquery').value;
         window.open(`http://dms.parlevel.io/devices/${id}`);
       };
+      function copy_number(source) {
+        var copied_text = '';
+        if (source == 'usat') {
+          copied_text = '1-888-561-4748';
+        } else if (source == 'nayax') {
+          copied_text = '410-666-3800';
+        } else if (source  == 'aircall') {
+          copied_text = '1-888-240-6923';
+        } else if (source == 'hubspot') {
+          copied_text = '1-888-482-7768';
+        }
+
+        const temp = document.createElement('input');
+        temp.setAttribute("value", copied_text);
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+        alert(`The number to ${source} has been copied to your clipboard: ${copied_text}`);
+
+      }
     </script>
   </body>
 
