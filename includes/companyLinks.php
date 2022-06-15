@@ -1,6 +1,6 @@
 <!-- start blok -->
-<div id="blok">
-    <div id="head">HEADER</div>
+<div class="blok">
+    <div class="blokhead">HEADER</div>
     <ul>
         <li>
             <a href="/revisedIndex.php" target="/revisedIndex.php">
